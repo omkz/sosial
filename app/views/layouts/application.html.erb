@@ -9,9 +9,13 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
-
-  <body>
-    <%= render "shared/navbar" %>
+  <body class= "container p-5 mx-auto">
+    <header>
+      <div id="flash" class="flash">
+        <%= render "shared/flash_notice" %>
+      </div>
+      <%= render "shared/navbar" %>
+    </header>
     <%= yield %>
   </body>
 </html>
