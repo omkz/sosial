@@ -37,6 +37,10 @@ module Sosial
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.generators do |g|
+      g.helper            false
+      g.system_tests      nil
+      g.jbuilder          false
+    end
   end
 end
