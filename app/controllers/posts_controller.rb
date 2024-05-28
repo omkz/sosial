@@ -60,6 +60,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    @post = Post.find(params[:id])
+    current_user.likes.create(likeable: @post)
+    render partial: 'posts/post', locals: { post: @post }
+  end
+
+  def unlike
+    @post = Post.find(params[:id])
+    current_user.likes.find_by(likeable: @post).destroy
+    render partial: 'posts/post', locals: { post: @post }
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
