@@ -16,6 +16,16 @@
       </div>
       <%= render "shared/navbar" %>
     </header>
-    <%= yield %>
+
+    <div class="container px-4 py-4 mx-auto">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-4 lg:grid-cols-12">
+       <%= render "shared/leftbar" %>
+        <!-- Main Content -->
+        <div class="col-span-1 rounded-lg md:col-span-2 lg:col-span-6">
+          <%= yield %>
+        </div>
+       <%= render "shared/rightbar" %>
+      </div>
+    </div>
   </body>
 </html>
