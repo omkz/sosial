@@ -3,7 +3,7 @@
       <div class="flex items-center px-4 py-3">
         <img class="w-8 h-8 rounded-full" src="https://picsum.photos/id/1027/150/150"/>
         <div class="ml-3 ">
-          <span class="block text-sm antialiased font-semibold leading-tight"><%= post.user.email %></span>
+          <span class="block text-sm antialiased font-semibold leading-tight"><%= post.user.username %></span>
           <span class="block text-xs text-gray-600">sponsored</span>
         </div>
       </div>
@@ -37,7 +37,7 @@
       <div class="mx-4 mt-2 mb-4 text-sm font-semibold"><%= post.likes.size %> likes</div>
       <div class="mx-4 mb-4">
         <div class="mb-2 text-sm">
-          <span class="mr-2 font-medium">jonsnow</span> Lord of the Rings is my favorite film-series. One day I'll make my way to New Zealand to visit the Hobbiton set!
+          <span class="mr-2 font-medium"><%= post.user.username %></span><%= post.title %>
         </div>
       </div>
     </div>
