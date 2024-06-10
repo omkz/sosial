@@ -25,11 +25,13 @@
               <%= svg_tag 'heart', style: "height: 32px; width: 32px; " %>
             <% end %>
           <% end %>
-          <%= svg_tag 'comment', style: "height: 32px; width: 32px; " %>
+          <%= link_to post, data: { turbo: false} do %>
+            <%= svg_tag 'comment', style: "height: 32px; width: 32px;" %>
+          <% end %>
           <%= svg_tag 'share', style: "height: 32px; width: 32px; " %>
         </div>
         <div class="flex">
-          <%= svg_tag 'bookmark', style: "height: 32px; width: 32px; " %>
+          <%= svg_tag 'bookmark', style: "height: 32px; width: 32px;" %>
         </div>
       </div>
       <div class="mx-4 mt-2 mb-4 text-sm font-semibold"><%= post.likes.size %> likes</div>

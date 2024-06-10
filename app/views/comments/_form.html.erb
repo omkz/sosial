@@ -1,0 +1,9 @@
+<%= form_with(model: [post, post.comments.new]) do |form| %>
+  <div class="flex items-center px-4 py-3">
+    <img class="w-8 h-8 rounded-full" src="https://picsum.photos/id/1027/150/150"/>
+    <div class="w-full ml-3">
+      <span class= "block"><%= form.text_area :body, class: "textarea textarea-bordered w-full" %></span>
+      <span class= "block"><%= form.submit "Post comment", class: "btn btn-sm btn-secondary" %></span>
+    </div>
+  </div>
+<% end %>

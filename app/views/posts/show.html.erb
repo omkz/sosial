@@ -2,9 +2,19 @@
 
 <%= render @post %>
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
+<h2>Comments</h2>
+<% if @comments.any? %>
+  <% @comments.each do |comment| %>
+    <div class="flex items-center px-4 py-3">
+    <img class="w-8 h-8 rounded-full" src="https://picsum.photos/id/1027/150/150"/>
+    <div class="ml-3 ">
+      <span class="block text-sm antialiased font-semibold leading-tight"><%= comment.user.email %></span>
+      <span class="block text-xs text-gray-600"><%= comment.body %></span>
+    </div>
+  </div>
+  <% end %>
+<% else %>
+  <p>No comments found.</p>
+<% end %>
 
-  <%= button_to "Destroy this post", @post, method: :delete %>
-</div>
+<%= render partial: "comments/form", locals: { post: @post } %>

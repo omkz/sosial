@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :posts do
+    resources :comments
     member do
       post "like", to: "posts#like" # /posts/:id/like
       delete "unlike", to: "posts#unlike" # posts/:id/unlike
