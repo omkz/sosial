@@ -1,4 +1,4 @@
-<%= form_with(model: [post, post.comments.new]) do |form| %>
+<%= form_with model: [ post, comment ] do |form| %>
   <div class="flex items-center px-4 py-3">
     <%= image_tag current_user.avatar.variant(:thumb), class: "w-8 h-8 rounded-full" if current_user.avatar.attached? %>
     <div class="w-full ml-3">

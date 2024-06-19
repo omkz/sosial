@@ -3,8 +3,8 @@
 <%= render @post %>
 
 <h2>Comments</h2>
-<% if @comments.any? %>
-  <% @comments.each do |comment| %>
+<% if @post.comments.any? %>
+  <% @post.comments.each do |comment| %>
     <div class="flex items-center px-4 py-3">
       <%= image_tag comment.user.avatar.variant(:thumb), class: "w-8 h-8 rounded-full" if comment.user.avatar.attached? %>
       <div class="ml-3 ">
@@ -22,6 +22,7 @@
           <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-32">
             <% if current_user.id == comment.user_id %>
               <li><%= button_to "delete", post_comment_path(@post, comment), method: :delete,  data: { turbo_confirm: "Are you sure?" } %></li>
+              <li><%= link_to "edit", edit_post_comment_path(@post, comment) %></li>
             <% end %>
             <li><a>analytics</a></li>
           </ul>
@@ -33,4 +34,4 @@
   <p>No comments found.</p>
 <% end %>
 
-<%= render partial: "comments/form", locals: { post: @post } %>
+<%= render 'comments/form', post: @post, comment: @comment %>
